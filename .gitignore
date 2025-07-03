@@ -1,0 +1,6 @@
+*.log
+*.swp
+*.bak
+*.tmp
+*.tar.gz
+.DS_Store
