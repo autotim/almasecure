@@ -1,0 +1,4 @@
+# 🗂️ inventory/hosts – AlmaSecure™ inventory file
+
+[secure_nodes]
+secure-node.alma.local ansible_user=root ansible_port=22

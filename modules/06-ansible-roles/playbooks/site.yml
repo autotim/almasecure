@@ -1,0 +1,12 @@
+---
+# 🚀 playbooks/site.yml – Apply full AlmaSecure™ hardening stack
+
+- name: Apply AlmaSecure™ Hardening Stack
+  hosts: secure_nodes
+  become: true
+  roles:
+    - selinux
+    - sshd
+    - firewalld
+    - dnf
+    - backups
