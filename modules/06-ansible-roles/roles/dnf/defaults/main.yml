@@ -1,0 +1,4 @@
+---
+# 🎛️ roles/dnf/defaults/main.yml – Default variables for DNF role
+
+dnf_enable_rollback: true
