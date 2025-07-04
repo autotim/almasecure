@@ -1,0 +1,15 @@
+---
+# 📦 roles/dnf/meta/main.yml – Role metadata
+
+dependency: []
+
+galaxy_info:
+  role_name: dnf
+  author: autotim
+  description: Harden DNF configuration on AlmaLinux 9.6 with performance and rollback features
+  license: MIT
+  min_ansible_version: 2.15
+  platforms:
+    - name: EL
+      versions:
+        - 9
