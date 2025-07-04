@@ -1,0 +1,29 @@
+---
+# 🔥 roles/firewalld/tasks/main.yml – Harden firewall with firewalld
+
+- name: Ensure firewalld is installed
+  ansible.builtin.yum:
+    name: firewalld
+    state: present
+
+- name: Start and enable firewalld
+  ansible.builtin.service:
+    name: firewalld
+    state: started
+    enabled: true
+
+- name: Ensure default zone is set to public
+  ansible.posix.firewalld:
+    immediate: true
+    permanent: true
+    state: enabled
+    zone: public
+    interface: "{{ ansible_default_ipv4.interface }}"
+
+- name: Open configured ports
+  ansible.posix.firewalld:
+    port: "{{ item }}/tcp"
+    permanent: true
+    state: enabled
+  loop: "{{ firewall_open_ports | default([]) }}"
+  notify: reload firewalld
