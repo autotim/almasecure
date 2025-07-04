@@ -1,0 +1,26 @@
+---
+# ⚙️ roles/dnf/tasks/main.yml – Harden DNF settings for AlmaLinux
+
+- name: Ensure dnf-plugins-core is installed
+  ansible.builtin.yum:
+    name: dnf-plugins-core
+    state: present
+
+- name: Configure global DNF settings
+  ansible.builtin.blockinfile:
+    path: /etc/dnf/dnf.conf
+    marker: "# {mark} ANSIBLE MANAGED BLOCK"
+    block: |
+      fastestmirror=True
+      installonly_limit=3
+      keepcache=True
+      max_parallel_downloads=10
+      metadata_timer_sync=86400
+      defaultyes=True
+
+- name: Enable DNF rollback support (optional)
+  ansible.builtin.lineinfile:
+    path: /etc/dnf/dnf.conf
+    insertafter: EOF
+    line: 'tsflags=repackage'
+    create: yes
