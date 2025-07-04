@@ -10,7 +10,7 @@ Establishes the baseline security posture for a newly deployed AlmaLinux system.
 
 ---
 
-## 🧩 Tasks Included
+## 🧹 Tasks Included
 
 | Task                | Description                                                              |
 |---------------------|--------------------------------------------------------------------------|
@@ -36,12 +36,12 @@ ansible-playbook -i ../../inventory/hosts site.yml
 
 ## 🔧 Related Files
 
-- `site.yml` – main playbook
-- `roles/` – Ansible roles: `sshd`, `selinux`, `firewalld`, etc.
-- `defaults/` – Role-specific variables
-- `vars/` – System-wide hardening values
+- `site.yml` – main playbook  
+- `roles/` – Ansible roles: `sshd`, `selinux`, `firewalld`, etc.  
+- `defaults/` – Role-specific variables  
+- `vars/` – System-wide hardening values  
 
 ---
 
-## 🧬 Project-Matrix™ DNA
-> Professionalism + Readability + Repo Hygiene = 🧬
+## 🧼 Project-Matrix™ DNA
+> Professionalism + Readability + Repo Hygiene = 🧼
