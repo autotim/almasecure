@@ -1,0 +1,6 @@
+---
+# 🎛️ roles/backups/defaults/main.yml – Default backup config
+
+backup_enabled: true
+backup_source: /etc
+backup_destination: /var/backups/etc
