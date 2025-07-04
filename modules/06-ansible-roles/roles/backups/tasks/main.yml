@@ -1,0 +1,21 @@
+---
+# 💾 roles/backups/tasks/main.yml – Basic backup strategy using rsync
+
+- name: Ensure rsync is installed
+  ansible.builtin.yum:
+    name: rsync
+    state: present
+
+- name: Create backup destination
+  ansible.builtin.file:
+    path: "{{ backup_destination }}"
+    state: directory
+    owner: root
+    group: root
+    mode: '0700'
+
+- name: Perform backup with rsync
+  ansible.builtin.command:
+    cmd: >
+      rsync -aAXv --delete {{ backup_source }} {{ backup_destination }}
+  when: backup_enabled
