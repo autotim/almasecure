@@ -1,0 +1,19 @@
+---
+# 🧱 roles/selinux/tasks/main.yml – Harden SELinux mode and config
+
+- name: Ensure policycoreutils is installed
+  ansible.builtin.yum:
+    name: policycoreutils
+    state: present
+
+- name: Set SELinux mode
+  ansible.posix.selinux:
+    policy: targeted
+    state: "{{ selinux_state | default('enforcing') }}"
+
+- name: Ensure SELinux config file reflects desired state
+  ansible.builtin.lineinfile:
+    path: /etc/selinux/config
+    regexp: '^SELINUX='
+    line: 'SELINUX={{ selinux_state | default("enforcing") }}'
+    backup: yes
