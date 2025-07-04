@@ -1,0 +1,4 @@
+---
+# ⚙️ roles/selinux/defaults/main.yml – SELinux state defaults
+
+selinux_state: enforcing
