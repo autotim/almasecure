@@ -1,0 +1,4 @@
+---
+# ⚙️ roles/sshd/defaults/main.yml – Default vars for sshd hardening
+
+ssh_port: 22
