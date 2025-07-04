@@ -1,0 +1,15 @@
+---
+# 📦 roles/selinux/meta/main.yml – Role metadata
+
+dependency: []
+
+galaxy_info:
+  role_name: selinux
+  author: autotim
+  description: Enforce SELinux policy mode and persist configuration on AlmaLinux 9.6
+  license: MIT
+  min_ansible_version: 2.15
+  platforms:
+    - name: EL
+      versions:
+        - 9
