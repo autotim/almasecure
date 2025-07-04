@@ -1,0 +1,7 @@
+---
+# ⚙️ roles/sshd/handlers/main.yml – SSHD handler to reload service
+
+- name: reload sshd
+  ansible.builtin.service:
+    name: sshd
+    state: reloaded
