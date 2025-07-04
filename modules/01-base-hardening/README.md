@@ -11,7 +11,7 @@ This module applies foundational security measures to a fresh AlmaLinux install:
 | Task                  | Description                                                                      |
 |-----------------------|----------------------------------------------------------------------------------|
 | 💼 Hostname           | Set system hostname (FQDN)                                                    |
-| 🧑�🔧 Root Lock         | Prompt user to optionally lock the root account (passwd -l root)             |
+| 🧑‍🔧 Root Lock         | Prompt user to optionally lock the root account (passwd -l root)             |
 | ❌ Ctrl+Alt+Del       | Disable Ctrl+Alt+Del reboot behavior in systemd                               |
 | ⚠️ Kernel Hardening | Harden sysctl config (e.g., disable IP forwarding, enable SYN cookies, etc.) |
 | 🔐 Login Banners     | Configure /etc/issue, /etc/motd, /etc/issue.net with legal warnings         |
