@@ -1,0 +1,7 @@
+---
+# 🔁 roles/firewalld/handlers/main.yml – Handler to reload firewalld
+
+- name: reload firewalld
+  ansible.builtin.service:
+    name: firewalld
+    state: reloaded
