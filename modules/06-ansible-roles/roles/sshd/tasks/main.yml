@@ -1,0 +1,34 @@
+---
+# 🔐 roles/sshd/tasks/main.yml – Harden SSH server config (idempotent)
+
+- name: Ensure openssh-server is installed
+  ansible.builtin.yum:
+    name: openssh-server
+    state: present
+
+- name: Start and enable sshd
+  ansible.builtin.service:
+    name: sshd
+    state: started
+    enabled: true
+
+- name: Harden sshd_config
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^{{ item.key }}"
+    line: "{{ item.key }} {{ item.value }}"
+    create: yes
+    backup: yes
+  loop:
+    - { key: 'Port', value: '{{ ssh_port | default(22) }}' }
+    - { key: 'PermitRootLogin', value: 'no' }
+    - { key: 'PasswordAuthentication', value: 'no' }
+    - { key: 'ClientAliveInterval', value: '300' }
+    - { key: 'ClientAliveCountMax', value: '2' }
+    - { key: 'UseDNS', value: 'no' }
+    - { key: 'X11Forwarding', value: 'no' }
+
+- name: Reload sshd to apply changes
+  ansible.builtin.service:
+    name: sshd
+    state: reloaded
