@@ -1,0 +1,15 @@
+---
+# 🧬 roles/backups/meta/main.yml – Role metadata
+
+dependency: []
+
+galaxy_info:
+  role_name: backups
+  author: autotim
+  description: Basic rsync backup role for AlmaLinux 9.6 to protect key directories
+  license: MIT
+  min_ansible_version: 2.15
+  platforms:
+    - name: EL
+      versions:
+        - 9
